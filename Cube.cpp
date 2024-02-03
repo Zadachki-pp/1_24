@@ -1,3 +1,4 @@
+#include "Cude.h"
 #include <iostream>
 #include <cmath>
 
@@ -7,8 +8,13 @@ class Cube {
     double _a;
 
 public:
-    explicit Cube(double a) {
+    explicit Cube::Cube(double a) {
+        std::cout << "Construct" << std::endl;
         _a = a;
+    }
+
+    ~Cube() {
+        std::cout << "Destruct" << std::endl;
     }
 
     double get_S() const {
@@ -24,13 +30,3 @@ public:
     }
 
 };
-
-
-int main() {
-    Cube cubik(5);
-    std::cout << cubik.get_S() << std::endl;
-    std::cout << cubik.get_V() << std::endl;
-    std::cout << cubik.get_d() << std::endl;
-
-    return 0;
-}
